@@ -1,0 +1,555 @@
+Answer entries:
+Ordinary processes:
+(1, {}, {rsv(R,L,D)}, {}, {})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 1
+Receivable answers (receiver sender):
+none
+Which step?
+r 1
+
+Answer entries:
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@a, av(D)@b}, {}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {unav(D)@a, av(D)@b}, {}, {})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 2, r 3, r 4
+Receivable answers (receiver sender):
+none
+Which step?
+r 2
+
+Agent r asked: av(D@r#2)@a
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {unav(D)@a, av(D)@b}, {}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {av(D)@b}, {}, {(av(D)@a, d(1))})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, r 5, a 1
+Receivable answers (receiver sender):
+none
+Which step?
+r 5
+
+Agent r asked: av(D@r#2)@b
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6})
+(av(D)@b, os, {true}, {5})
+(av(D)@b, d(2), {D:{1,2,3}}, {6})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {unav(D)@a, av(D)@b}, {}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os)}, {(av(D)@a, d(1))})
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, r 6, a 1, b 1
+Receivable answers (receiver sender):
+none
+Which step?
+r 6
+
+Agent r returned to Root_caller the new answer:
+(rsv(R,L,D)@r, p(6), {R=tr, L=[a,b], D:{1,2,3}}, nil)
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6})
+(av(D)@b, os, {true}, {5})
+(av(D)@b, d(2), {D:{1,2,3}}, {6})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {unav(D)@a, av(D)@b}, {}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os)}, {(av(D)@a, d(1))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, a 1, b 1
+Receivable answers (receiver sender):
+none
+Which step?
+a 1
+
+Answer entries:
+Ordinary processes:
+(2, {}, {fr(D@r#2)@a1}, {}, {})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, a 2, b 1
+Receivable answers (receiver sender):
+none
+Which step?
+a 2
+
+Agent a asked: fr(D@a#2)@a1
+
+Answer entries:
+(fr(D)@a1, os, {true}, {2})
+(fr(D)@a1, d(1), {D:{1,2}}, {3})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@a1, os)}, {})
+(3, {D@r#2:{1,2}}, {}, {}, {(fr(D@r#2)@a1, d(1))})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, a 3, b 1
+Receivable answers (receiver sender):
+none
+Which step?
+a 3
+
+Agent a returned to r the new answer:
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, nil)
+
+Answer entries:
+(fr(D)@a1, os, {true}, {2})
+(fr(D)@a1, d(1), {D:{1,2}}, {3})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@a1, os)}, {})
+Finished processes:
+(3, {D@r#2:{1,2}}, {}, {}, {(fr(D@r#2)@a1, d(1))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, b 1
+Receivable answers (receiver sender):
+r a
+Which step?
+r a
+
+Agent r returned to Root_caller the revised answer:
+(rsv(R,L,D)@r, p(7), {R=tr, L=[a,b], D:{1,2}}, p(6))
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {unav(D)@a, av(D)@b}, {}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, d(2))})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {}, {(av(D)@b, d(2)), (av(D)@a, p(3))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, b 1
+Receivable answers (receiver sender):
+none
+Which step?
+b 1
+
+Answer entries:
+Ordinary processes:
+(2, {}, {fr(D@r#2)@b1}, {}, {})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, b 2
+Receivable answers (receiver sender):
+none
+Which step?
+b 2
+
+Agent b asked: fr(D@b#2)@b1
+
+Agent b1 returned to b the new answer:
+(fr(D)@b1, p(1), {D:{2,3}}, nil)
+
+Answer entries:
+(fr(D)@b1, os, {true}, {2})
+(fr(D)@b1, d(1), {D:{2}}, {3})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@b1, os)}, {})
+(3, {D@r#2:{2}}, {}, {}, {(fr(D@r#2)@b1, d(1))})
+Finished processes:
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4, b 3
+Receivable answers (receiver sender):
+b b1
+Which step?
+b 3
+
+Agent b returned to r the new answer:
+(av(D@r#2)@b, p(3), {D@r#2:{2}}, nil)
+
+Answer entries:
+(fr(D)@b1, os, {true}, {2})
+(fr(D)@b1, d(1), {D:{2}}, {3})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@b1, os)}, {})
+Finished processes:
+(3, {D@r#2:{2}}, {}, {}, {(fr(D@r#2)@b1, d(1))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4
+Receivable answers (receiver sender):
+b b1, r b
+Which step?
+r b
+
+Agent r returned to Root_caller the revised answer:
+(rsv(R,L,D)@r, p(9), {R=tr, L=[a,b], D:{2}}, p(7))
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6,10})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8,9})
+(av(D@r#2)@b, p(3), {D@r#2:{2}}, {9,10})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {unav(D)@a, av(D)@b}, {}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))}, {})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, d(2))}, {(av(D)@a, p(3))})
+(9, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}, D:{2}}, {}, {}, {(av(D)@a, p(3)), (av(D)@b, p(3))})
+(10, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{2}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(3))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 4
+Receivable answers (receiver sender):
+b b1
+Which step?
+r 4
+
+Agent r asked: unav(D@r#4)@a
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6,10})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(unav(D)@a, os, {true}, {4})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8,9})
+(av(D@r#2)@b, p(3), {D@r#2:{2}}, {9,10})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {av(D)@b}, {(unav(D)@a, os)}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))}, {})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, d(2))}, {(av(D)@a, p(3))})
+(9, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}, D:{2}}, {}, {}, {(av(D)@a, p(3)), (av(D)@b, p(3))})
+(10, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{2}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(3))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, a 4
+Receivable answers (receiver sender):
+b b1
+Which step?
+a 4
+
+Answer entries:
+(fr(D)@a1, os, {true}, {2})
+(fr(D)@a1, d(1), {D:{1,2}}, {3})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@a1, os)}, {})
+(5, {}, {bs(D@r#4)@a1}, {}, {})
+Finished processes:
+(3, {D@r#2:{1,2}}, {}, {}, {(fr(D@r#2)@a1, d(1))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, a 5
+Receivable answers (receiver sender):
+b b1
+Which step?
+a 5
+
+Agent a asked: bs(D@a#5)@a1
+
+Answer entries:
+(fr(D)@a1, os, {true}, {2})
+(fr(D)@a1, d(1), {D:{1,2}}, {3})
+(bs(D)@a1, os, {true}, {5})
+(bs(D)@a1, d(2), {D:{3}}, {6})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@a1, os)}, {})
+(5, {}, {}, {(bs(D@r#4)@a1, os)}, {})
+(6, {D@r#4:{3}}, {}, {}, {(bs(D@r#4)@a1, d(2))})
+Finished processes:
+(3, {D@r#2:{1,2}}, {}, {}, {(fr(D@r#2)@a1, d(1))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, a 6
+Receivable answers (receiver sender):
+b b1
+Which step?
+a 6
+
+Agent a returned to r the new answer:
+(unav(D@r#4)@a, p(6), {D@r#4:{3}}, nil)
+
+Answer entries:
+(fr(D)@a1, os, {true}, {2})
+(fr(D)@a1, d(1), {D:{1,2}}, {3})
+(bs(D)@a1, os, {true}, {5})
+(bs(D)@a1, d(2), {D:{3}}, {6})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@a1, os)}, {})
+(5, {}, {}, {(bs(D@r#4)@a1, os)}, {})
+Finished processes:
+(3, {D@r#2:{1,2}}, {}, {}, {(fr(D@r#2)@a1, d(1))})
+(6, {D@r#4:{3}}, {}, {}, {(bs(D@r#4)@a1, d(2))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3
+Receivable answers (receiver sender):
+r a, b b1
+Which step?
+r a
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6,10})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(unav(D)@a, os, {true}, {4})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8,9})
+(av(D@r#2)@b, p(3), {D@r#2:{2}}, {9,10})
+(unav(D@r#4)@a, p(6), {D@r#4:{3}}, {11})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {av(D)@b}, {(unav(D)@a, os)}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+(11, {L=[b], R=sr, D:{3}}, {av(D)@b}, {}, {(unav(D)@a, p(6))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))}, {})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, d(2))}, {(av(D)@a, p(3))})
+(9, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}, D:{2}}, {}, {}, {(av(D)@a, p(3)), (av(D)@b, p(3))})
+(10, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{2}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(3))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 11
+Receivable answers (receiver sender):
+b b1
+Which step?
+b b1
+
+Agent b returned to r the revised answer:
+(av(D@r#2)@b, p(4), {D@r#2:{2}}, p(3))
+
+Answer entries:
+(fr(D)@b1, os, {true}, {2})
+(fr(D)@b1, d(1), {D:{2}}, {3})
+(fr(D)@b1, p(1), {D:{2,3}}, {4,5})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@b1, os)}, {})
+(5, {not D@r#2:{2}, D@r#2:{2,3}}, {}, {}, {(fr(D@r#2)@b1, p(1))})
+Finished processes:
+(3, {D@r#2:{2}}, {}, {(fr(D@r#2)@b1, d(1))}, {})
+(4, {D@r#2:{2}, D@r#2:{2,3}}, {}, {}, {(fr(D@r#2)@b1, p(1))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 11, b 5
+Receivable answers (receiver sender):
+r b
+Which step?
+r 11
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6,10})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, on, {true}, {11})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(unav(D)@a, os, {true}, {4})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8,9})
+(av(D@r#2)@b, p(3), {D@r#2:{2}}, {9,10})
+(unav(D@r#4)@a, p(6), {D@r#4:{3}}, {11})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {av(D)@b}, {(unav(D)@a, os)}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+(11, {L=[b], R=sr, D:{3}}, {}, {(av(D)@b, on)}, {(unav(D)@a, p(6))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))}, {})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, d(2))}, {(av(D)@a, p(3))})
+(9, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}, D:{2}}, {}, {}, {(av(D)@a, p(3)), (av(D)@b, p(3))})
+(10, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{2}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(3))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, b 5
+Receivable answers (receiver sender):
+r b
+Which step?
+b 5
+
+Agent b returned to r the new answer:
+(av(D@r#2)@b, p(5), {D@r#2:{3}}, nil)
+
+Answer entries:
+(fr(D)@b1, os, {true}, {2})
+(fr(D)@b1, d(1), {D:{2}}, {3})
+(fr(D)@b1, p(1), {D:{2,3}}, {4,5})
+Ordinary processes:
+(2, {}, {}, {(fr(D@r#2)@b1, os)}, {})
+Finished processes:
+(3, {D@r#2:{2}}, {}, {(fr(D@r#2)@b1, d(1))}, {})
+(4, {D@r#2:{2}, D@r#2:{2,3}}, {}, {}, {(fr(D@r#2)@b1, p(1))})
+(5, {not D@r#2:{2}, D@r#2:{2,3}}, {}, {}, {(fr(D@r#2)@b1, p(1))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3
+Receivable answers (receiver sender):
+r b
+Which step?
+r b
+
+Agent r returned to Root_caller the revised answer:
+(rsv(R,L,D)@r, p(9), {R=tr, L=[a,b], D:{2}}, p(9))
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6,10})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, on, {true}, {11})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(unav(D)@a, os, {true}, {4})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8,9})
+(av(D@r#2)@b, p(4), {D@r#2:{2}}, {10,9})
+(unav(D@r#4)@a, p(6), {D@r#4:{3}}, {11})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {av(D)@b}, {(unav(D)@a, os)}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+(11, {L=[b], R=sr, D:{3}}, {}, {(av(D)@b, on)}, {(unav(D)@a, p(6))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))}, {})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, d(2))}, {(av(D)@a, p(3))})
+(9, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}, D:{2}, D:{2}}, {}, {}, {(av(D)@a, p(3)), (av(D)@b, p(4))})
+(10, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{2}, D:{2}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(4))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3
+Receivable answers (receiver sender):
+r b
+Which step?
+r b
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6,10,12})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, on, {true}, {11})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(unav(D)@a, os, {true}, {4})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8,9})
+(av(D@r#2)@b, p(4), {D@r#2:{2}}, {10,9})
+(unav(D@r#4)@a, p(6), {D@r#4:{3}}, {11,13})
+(av(D@r#2)@b, p(5), {D@r#2:{3}}, {12,13})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {av(D)@b}, {(unav(D)@a, os)}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+(11, {L=[b], R=sr, D:{3}}, {}, {(av(D)@b, on)}, {(unav(D)@a, p(6))})
+(13, {L=[b], R=sr, D:{3}, D:{3}}, {}, {}, {(unav(D)@a, p(6)), (av(D)@b, p(5))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))}, {})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, d(2))}, {(av(D)@a, p(3))})
+(9, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}, D:{2}, D:{2}}, {}, {}, {(av(D)@a, p(3)), (av(D)@b, p(4))})
+(10, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{2}, D:{2}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(4))})
+(12, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{3}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(5))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3, r 13
+Receivable answers (receiver sender):
+none
+Which step?
+r 13
+
+Agent r returned to Root_caller the new answer:
+(rsv(R,L,D)@r, p(13), {R=sr, L=[b], D:{3}}, nil)
+
+Answer entries:
+(av(D)@a, os, {true}, {2})
+(av(D)@a, d(1), {D:{1,2,3}}, {5,6,10,12})
+(av(D)@b, os, {true}, {5,8})
+(av(D)@b, on, {true}, {11})
+(av(D)@b, d(2), {D:{1,2,3}}, {6,7})
+(unav(D)@a, os, {true}, {4})
+(av(D@r#2)@a, p(3), {D@r#2:{1,2}}, {7,8,9})
+(av(D@r#2)@b, p(4), {D@r#2:{2}}, {10,9})
+(unav(D@r#4)@a, p(6), {D@r#4:{3}}, {11,13})
+(av(D@r#2)@b, p(5), {D@r#2:{3}}, {12,13})
+Ordinary processes:
+(2, {L=[a,b], R=tr}, {av(D)@b}, {(av(D)@a, os)}, {})
+(3, {L=[a], R=sr}, {av(D)@a, unav(D)@b}, {}, {})
+(4, {L=[b], R=sr}, {av(D)@b}, {(unav(D)@a, os)}, {})
+(5, {L=[a,b], R=tr, D:{1,2,3}}, {}, {(av(D)@b, os), (av(D)@a, d(1))}, {})
+(8, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, os)}, {(av(D)@a, p(3))})
+(11, {L=[b], R=sr, D:{3}}, {}, {(av(D)@b, on)}, {(unav(D)@a, p(6))})
+Finished processes:
+(6, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}}, {}, {(av(D)@a, d(1)), (av(D)@b, d(2))}, {})
+(7, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}}, {}, {(av(D)@b, d(2))}, {(av(D)@a, p(3))})
+(9, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{1,2}, D:{2}, D:{2}}, {}, {}, {(av(D)@a, p(3)), (av(D)@b, p(4))})
+(10, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{2}, D:{2}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(4))})
+(12, {L=[a,b], R=tr, D:{1,2,3}, D:{1,2,3}, D:{3}}, {}, {(av(D)@a, d(1))}, {(av(D)@b, p(5))})
+(13, {L=[b], R=sr, D:{3}, D:{3}}, {}, {}, {(unav(D)@a, p(6)), (av(D)@b, p(5))})
+
+SELECT NEXT STEP
+Reducible processes (agent pid):
+r 3
+Receivable answers (receiver sender):
+none
+Which step?
